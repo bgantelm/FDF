@@ -6,7 +6,7 @@
 #    By: fhenri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:12:41 by fhenri            #+#    #+#              #
-#    Updated: 2016/01/16 11:06:56 by fhenri           ###   ########.fr        #
+#    Updated: 2016/01/16 14:57:15 by fhenri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LIB_NAME =
 
 CC = gcc 
 
-SRC_NAME = fdf.c transmo.c
+SRC_NAME = fdf.c transmo.c mlx_display.c
 
 OBJ_NAME = $(SRC:.c=.o)
 

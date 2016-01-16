@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/16 14:46:32 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/16 19:41:42 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int main (int argc, char **argv)
 	char	*buf;
 	int		index;
 	char	**grid;
-
+	
 	if (argc != 2)
 		return (error());
 	buf = malloc(sizeof(char) * BUFF_SIZE);
@@ -108,9 +108,7 @@ int main (int argc, char **argv)
 	close(file);
 	if (file == -1)
 		return (error());
-	//buf = ft_space(buf);
 	grid = ft_strsplit(buf,'\n');
-
 	ft_transmo(grid);
 	return (0);
 }
