@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/16 11:59:11 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/16 14:46:32 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ int error()
 	return(0);
 }
 /*
-int main (int argc, char **argv)
- 
-  {
-  int a = 0;
-  void *mlx;
-  void *win;
-  char *buf;
-  int x = 0;
-  int y = 0;
+   int main (int argc, char **argv)
 
-  buf = malloc(sizeof(char)* 10);
-  mlx = mlx_init();
-  win = mlx_new_window(mlx,800,800,"test"); // afficher la fennetre
-  while (a < 100)
-  {
-  mlx_pixel_put(mlx,win, x, y,0x00FFFFFF);// affficher un pixel
+   {
+   int a = 0;
+   void *mlx;
+   void *win;
+   char *buf;
+   int x = 0;
+   int y = 0;
+
+   buf = malloc(sizeof(char)* 10);
+   mlx = mlx_init();
+   win = mlx_new_window(mlx,800,800,"test"); // afficher la fennetre
+   while (a < 100)
+   {
+   mlx_pixel_put(mlx,win, x, y,0x00FFFFFF);// affficher un pixel
 //	sleep(1);	
 x++;
 if (x == 400)
@@ -50,40 +50,67 @@ return (0);
 } 
 */
 
-void display (int **grid)
+void display (int **grid, int x, int y)
 {
 	int a = 0;
 	int b;
 
-	while (grid[a][b] != -343)
+	while (a < x)
 	{
 		b = 0;
-		while(grid[a][b] != -1)
+		while(b < y)
 		{
 			ft_putnbr(grid[a][b]);
 			b++;
 		}
+		ft_putchar('\n');
 		a++;
 	}
 }
+
+char *ft_space(char *str)
+{
+	int a;
+	int b;
+	char *new;
+
+	a = 0;
+	b = 0;
+	new = malloc(sizeof(str));
+	while(str[a])
+	{
+		if (str[a] == ' ')
+		{
+			a++;
+		}
+		new[b] = str[a];
+		a++;
+		b++;
+	}
+	new[b] = '\0';
+	return (new);
+}
+
 int main (int argc, char **argv)
 {
-	
-		int		file;
-		char	buf[BUFF_SIZE];
-		int		index;
-		char	**grid;
 
-		if (argc != 2)
-			return (error());
-		file = open(argv[1], O_RDONLY);
-		index = read(file, buf, BUFF_SIZE);
-		buf[index] = '\0';
-		close(file);
-		if (file == -1)
-			return (error());
-		grid = ft_strsplit(buf,'\n');
-		ft_putstr(grid[4]);
-		//ft_transmo(grid);
-		return (0);
+	int		file;
+	char	*buf;
+	int		index;
+	char	**grid;
+
+	if (argc != 2)
+		return (error());
+	buf = malloc(sizeof(char) * BUFF_SIZE);
+	file = open(argv[1], O_RDONLY);
+	index = read(file, buf, BUFF_SIZE);
+	buf[index] = '\0';
+	close(file);
+	if (file == -1)
+		return (error());
+	//buf = ft_space(buf);
+	grid = ft_strsplit(buf,'\n');
+
+	ft_transmo(grid);
+	return (0);
 }
