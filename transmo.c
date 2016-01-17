@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 10:25:56 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/16 19:41:40 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/17 16:22:16 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,66 +14,64 @@
 
 int **ft_transmo(char **str)
 {
-	int a = 0;
-	int b = 0;
-	int x = 0;
-	int y = 0;
+	t_data val;
 	int w = 0;
 	int **grid;
 	char *tmp;
-	a = 0;
-
+	
+	val.a = 0;
+	val.x = 0;
 	tmp = ft_strnew(12);
 	grid = (int**)malloc(sizeof(int) *ft_strlen(*str));
-	while (str[a] != 0)
+	while (str[val.a] != 0)
 	{
-		b = 0;
-		while(str[a][b] != '\0')
-			b++;
-		grid[a] = (int*)malloc(sizeof(int*) * b);
-		a++;
+		val.b = 0;
+		while(str[val.a][val.b] != '\0')
+			val.b++;
+		grid[val.a] = (int*)malloc(sizeof(int*) * val.b);
+		val.a++;
 	}
-	a = 0;
-	while (str[a] != 0)
+	val.a = 0;
+	while (str[val.a] != 0)
 	{
-		b = 0;
-		y = 0;
-		while (str[a][b] != '\0')
+		val.b = 0;
+		val.y = 0;
+		while (str[val.a][val.b] != '\0')
 		{
-			if (str[a][b] == ' ' && str[a][b + 2] != '\0' && str[a][b + 2] != ' ')
+			if (str[val.a][val.b] == ' ' && str[val.a][val.b + 2] != '\0' && str[val.a][val.b + 2] != ' ')
 			{
-					b++;
+					val.b++;
 					w = 0;
-					while(str[a][b] != '\0' && str[a][b] != ' ')
+					while(str[val.a][val.b] != '\0' && str[val.a][val.b] != ' ')
 					{
-						tmp[w] = str[a][b];
-						b++;
+						tmp[w] = str[val.a][val.b];
+						val.b++;
 						w++;
 					}
-					grid[x][y] = ft_atoi(tmp);
+					grid[val.x][val.y] = ft_atoi(tmp);
 					free(tmp);
 					tmp = ft_strnew(12);
-					ft_putnbr(grid[x][y]);
+					ft_putnbr(grid[val.x][val.y]);
 					ft_putchar('K');
 			}
 			else
 			{
 				w = 0;
-				tmp[w] = str[a][b];
-				grid[x][y] = ft_atoi(tmp);
+				tmp[w] = str[val.a][val.b];
+				grid[val.x][val.y] = ft_atoi(tmp);
 				free(tmp);
 				tmp = ft_strnew(12);
-				ft_putnbr(grid[x][y]);
+				ft_putnbr(grid[val.x][val.y]);
 				ft_putchar(' ');
-				b++;
+				val.b++;
 			}
-			y++;
-			b++;
+			val.y++;
+			val.b++;
 		}
 		ft_putstr("\n");
-		a++;
-		x++;
+		val.a++;
+		val.x++;
 	}
-	mlx_display(grid,x,y);
+	mlx_display(grid,val);
 	return (0);
 }

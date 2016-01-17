@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/16 19:41:42 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/17 17:48:28 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,26 @@ int error()
 	ft_putendl("error");
 	return(0);
 }
+
+int my_quit(int keycode, t_my_mlx env)
+{
+	if (keycode == 53)
+	{
+		mlx_clear_window(env.mlx,env.win);
+		mlx_destroy_window(env.mlx,env.win);
+		return (0);
+	}
+	exit (0);
+	return (1);
+}
 /*
    int main (int argc, char **argv)
-
    {
    int a = 0;
    void *mlx;
    void *win;
    char *buf;
-   int x = 0;
+   int x =  100;
    int y = 0;
 
    buf = malloc(sizeof(char)* 10);
@@ -37,19 +48,16 @@ int error()
    while (a < 100)
    {
    mlx_pixel_put(mlx,win, x, y,0x00FFFFFF);// affficher un pixel
-//	sleep(1);	
-x++;
-if (x == 400)
-x = 0;
-if (y == 400)
-y = 0;
-y++;
-}
-mlx_loop(mlx); //gestion d'evenement
-return (0);
-} 
-*/
+   y++;
+   a++;
+   }
 
+   mlx_key_hook(win,my_key, 0);
+   mlx_loop(mlx); //gestion d'evenement
+   return (0);
+   } 
+
+*/
 void display (int **grid, int x, int y)
 {
 	int a = 0;
@@ -98,7 +106,7 @@ int main (int argc, char **argv)
 	char	*buf;
 	int		index;
 	char	**grid;
-	
+
 	if (argc != 2)
 		return (error());
 	buf = malloc(sizeof(char) * BUFF_SIZE);
@@ -111,4 +119,4 @@ int main (int argc, char **argv)
 	grid = ft_strsplit(buf,'\n');
 	ft_transmo(grid);
 	return (0);
-}
+} 
