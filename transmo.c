@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 10:25:56 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/17 16:22:16 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/18 12:42:16 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 int **ft_transmo(char **str)
 {
 	t_data val;
+	t_data *test;
 	int w = 0;
-	int **grid;
 	char *tmp;
-	
 	val.a = 0;
 	val.x = 0;
+	
 	tmp = ft_strnew(12);
-	grid = (int**)malloc(sizeof(int) *ft_strlen(*str));
+	test = malloc(sizeof(t_data));
+	test->grid = (int**)malloc(sizeof(int) *ft_strlen(*str));
 	while (str[val.a] != 0)
 	{
 		val.b = 0;
 		while(str[val.a][val.b] != '\0')
 			val.b++;
-		grid[val.a] = (int*)malloc(sizeof(int*) * val.b);
+		test->grid[val.a] = (int*)malloc(sizeof(int*) * val.b);
 		val.a++;
 	}
 	val.a = 0;
@@ -48,20 +49,20 @@ int **ft_transmo(char **str)
 						val.b++;
 						w++;
 					}
-					grid[val.x][val.y] = ft_atoi(tmp);
+					test->grid[val.x][val.y] = ft_atoi(tmp);
 					free(tmp);
 					tmp = ft_strnew(12);
-					ft_putnbr(grid[val.x][val.y]);
-					ft_putchar('K');
+					ft_putnbr(test->grid[val.x][val.y]);
+					ft_putchar(' ');
 			}
 			else
 			{
 				w = 0;
 				tmp[w] = str[val.a][val.b];
-				grid[val.x][val.y] = ft_atoi(tmp);
+				test->grid[val.x][val.y] = ft_atoi(tmp);
 				free(tmp);
 				tmp = ft_strnew(12);
-				ft_putnbr(grid[val.x][val.y]);
+				ft_putnbr(test->grid[val.x][val.y]);
 				ft_putchar(' ');
 				val.b++;
 			}
@@ -72,6 +73,8 @@ int **ft_transmo(char **str)
 		val.a++;
 		val.x++;
 	}
-	mlx_display(grid,val);
+	test->tab_final = tab_pos(val,test);
+//	ft_putnbr(test->tab_final[3][3].x);
+	mlx_display(val,test);
 	return (0);
 }

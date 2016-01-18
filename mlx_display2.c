@@ -6,14 +6,14 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 14:50:41 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/17 18:06:46 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/18 14:25:21 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 
-int mlx_display(int **grid, t_data val)
+int mlx_display(t_data val, t_data *test)
 {
 	int conteur = 0;
 	int conteur_bis = 0;
@@ -24,17 +24,18 @@ int mlx_display(int **grid, t_data val)
 	env.win = mlx_new_window(env.mlx,1000,1000,"FDF MA GEUL"); // afficher la fennetre10
 
 	//	ft_affine(grid,val);
-	while (val.a <= val.x)
+	while (val.a < val.x)
 	{
 		val.b = 0;
 		conteur = 0;
-		while (val.b <= val.y)
+		while (val.b < val.y)
 		{
 
-			if( val.a < val.x && val.b < val.y && grid[val.a][val.b] != 0)
+			if( val.a < val.x && val.b < val.y && test->grid[val.a][val.b] != 0)
 			{
-				ft_line_bleu(env,  conteur_bis,  conteur);
-				ft_collone_bleu(env,  conteur_bis,  conteur);
+			//	ft_draw_line(test,a,b);
+				ft_line_bleu(env,  conteur_bis,  conteur, test);
+				ft_collone_bleu(env,  conteur_bis,  conteur, test, val);
 			}
 			else
 			{
@@ -49,7 +50,7 @@ int mlx_display(int **grid, t_data val)
 		conteur_bis += 40;
 		val.a++;
 	}
-	//	mise_en_reliefe(env,grid, val);
+//		mise_en_reliefe(env,grid, val);
 	if (mlx_key_hook(env.win,my_quit, 0) != 0)
 		mlx_loop(env.mlx);
 	exit(0);
@@ -76,33 +77,30 @@ void ft_line(t_my_mlx env, int a, int b)
 	}
 }
 
-void ft_collone_bleu(t_my_mlx env, int a, int b)
+void ft_collone_bleu(t_my_mlx env, int a, int b, t_data *test, t_data val)
 {
 	int i = a;
-	int y = a;
+	int j = b;
 	while (i < a + 40)
 	{
-		y = y + 0.5 * 5;
-		mlx_pixel_put(env.mlx,env.win,b,y, 0x0066FFFF);
+	//	ft_putnbr(test->tab_final[3][3].z);
+		mlx_pixel_put(env.mlx,env.win,test->tab_final[val.a][val.b].x,test->tab_final[val.a][val.b].y, 0x0066FFFF);
+		j++;
 		i++;
-		b--;
 	}
 }
 
-void ft_line_bleu(t_my_mlx env, int a, int b)
+void ft_line_bleu(t_my_mlx env, int a, int b,t_data *test)
 {	
-	int x = b;
 	int i = b;
-	int cst = 1;
+	int j = a;
 	while (i < b + 40)
 	{
-		x = x + 1 * 5;
-		mlx_pixel_put(env.mlx,env.win,i,x,0x0066FFFF);
+		mlx_pixel_put(env.mlx,env.win,b,a,0x0066FFFF);
 		i++;
-		a++;
 	}
 }
-
+/*
 void mise_en_reliefe(t_my_mlx env, int **grid, t_data val)
 {
 	int conteur = 0;
@@ -129,4 +127,4 @@ void mise_en_reliefe(t_my_mlx env, int **grid, t_data val)
 		conteur += 40;
 		val.a++;
 	}
-}
+} */
