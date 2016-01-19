@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:40:26 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/18 15:38:51 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/19 18:47:13 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ typedef struct	s_data
 	t_point**	tab_final;
 }				t_data;
 
-void		ft_line_bleu(t_my_mlx env, int a, int b, t_data *test);
-void		ft_collone_bleu(t_my_mlx env, int a, int b, t_data *test, t_data val);
 int			ft_affine(int ** grid, t_data val);
 int			**ft_transmo(char **grid);
 int			my_quit(int keycode, t_my_mlx env);
@@ -59,4 +57,5 @@ void		mise_en_reliefe(t_my_mlx env, int **grid, t_data val);
 void		ft_collone(t_my_mlx env, int a, int b);
 void ft_draw_line(int a, int b, t_my_mlx env, t_data *test);
 void ft_draw_collone(int a, int b, t_my_mlx env, t_data * test);
+void trace_back_line(int x, int y, int x_prime, int y_prime, t_my_mlx env);
 #endif
