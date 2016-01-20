@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 14:50:41 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/19 18:35:17 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/20 14:20:16 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,36 @@ void ft_draw_line(int a, int b, t_my_mlx env, t_data *test)
 {
 	double  x_prime;
 	double y_prime;
-	int x;
-	int coef;
+	double x;
+	double coef;
 	int coef_prime =0;
-	int y;
+	double y;
 
 
 	y_prime = test->tab_final[a][b + 1].y;
 	x_prime =test->tab_final[a][b + 1].x;
 	x = test->tab_final[a][b].x;
 	y = test->tab_final[a][b].y;
-//	if( test->tab_final[a][b].z != 0)
+	coef = 14;
+//	if (test->tab_final[a][b].z != 0)
 //	{
-//	ft_putnbr((x_prime - x) / (y - y_prime));
-//	ft_putstr("\n");
+
+//	coef = (x_prime - x )/ test->tab_final[a][b].z;
+//	ft_putnbr(coef);
+		/*
+	ft_putstr("x_prime = ");
+	ft_putnbr((x_prime));
+	ft_putstr("  y_prime =");
+	ft_putnbr((y_prime));
+	ft_putstr("  x =");
+	ft_putnbr((x));
+	ft_putstr("  y =");
+	ft_putnbr((y));
+	ft_putstr("  z =");
+	ft_putnbr((test->tab_final[a][b].z));
+	*/
+//	ft_putstr("\n"); 
 //	}
-	coef = 15;
 	if (test->tab_final[a][b+1].z != 0 && test->tab_final[a][b].z != test->tab_final[a][b + 1].z)
 	{
 		while (x < x_prime)
@@ -113,8 +127,9 @@ void ft_draw_collone(int a, int b, t_my_mlx env, t_data * test)
 	y_prime =test->tab_final[a + 1][b].y;
 	x = test->tab_final[a][b].x;
 	y = test->tab_final[a][b].y;
-	coef = (x_prime / x);
-	coef = 15;
+//	coef = (y_prime - y )/ test->tab_final[a][b].z;
+//	if (coef < 0)
+		coef = 16;
 	if (test->tab_final[a + 1][b].z != 0 && test->tab_final[a][b].z != test->tab_final[a + 1][b].z)
 	{
 
