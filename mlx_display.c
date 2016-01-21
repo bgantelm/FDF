@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 14:50:41 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/20 19:50:24 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/21 10:24:51 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int mlx_display(t_data val, t_data *test)
 	t_my_mlx env;
 	env.mlx = mlx_init();
 	env.win = mlx_new_window(env.mlx,1400,850,"FDF MA GEUL");
-
 	while (a < val.x)
 	{
 		b = 0;
 		while (b < val.y)
 		{
+
 			ft_draw_line(a,b,env, test);
 			if (a + 1 < val.x)
 				ft_draw_collone(a,b,env,test);
@@ -52,10 +52,9 @@ void ft_draw_line(int a, int b, t_my_mlx env, t_data *test)
 	x_prime =test->tab_final[a][b + 1].x;
 	x = test->tab_final[a][b].x;
 	y = test->tab_final[a][b].y;
+	coef = 19;
 		if (test->tab_final[a][b+1].z != 0 && test->tab_final[a][b].z != test->tab_final[a][b + 1].z)
 		{
-
-		coef =  (y - y_prime) / ( x - x_prime);
 			while (x < x_prime)
 			{
 				if (coef_prime == coef &&  y > y_prime)
@@ -65,17 +64,18 @@ void ft_draw_line(int a, int b, t_my_mlx env, t_data *test)
 				}
 				if (test->tab_final[a][b].z != 0 || test->tab_final[a][b + 1].z != 0)
 				{
-					mlx_pixel_put(env.mlx,env.win,x,y, 0x0066FFFF);
+					mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x,y), 0x0066FFFF);
 				}
 				else
-					mlx_pixel_put(env.mlx,env.win,x,y,0x00996600);
+				{
+					mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x,y),0x00996600);
+				}
 				x++;
 				coef_prime++;
 			}
 		}
 		else
 		{
-			coef =  (x - x_prime) / ( y - y_prime);
 			while (x < x_prime)
 			{
 				if (coef_prime == coef  &&  y < y_prime)
@@ -85,10 +85,12 @@ void ft_draw_line(int a, int b, t_my_mlx env, t_data *test)
 				}
 				if (test->tab_final[a][b].z != 0 || test->tab_final[a][b + 1].z != 0)
 				{
-					mlx_pixel_put(env.mlx,env.win,x,y, 0x0066FFFF);
+					mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x,y), 0x0066FFFF);
 				}
 				else
-					mlx_pixel_put(env.mlx,env.win,x,y,0x00996600);
+				{
+					mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x,y),0x00996600);
+				}
 				x++;
 				coef_prime++;
 			}
@@ -103,16 +105,13 @@ void ft_draw_collone(int a, int b, t_my_mlx env, t_data * test)
 	double coef_prime;
 	double x;
 	double y;
-
-
+	
+	coef = 19;
 	x_prime =test->tab_final[a + 1][b].x;
 	y_prime =test->tab_final[a + 1][b].y;
 	x = test->tab_final[a][b].x;
 	y = test->tab_final[a][b].y;
 
-
-	if ( test->tab_final[a + 1][b].z != 0)
-		coef =  (y - y_prime) / (x - x_prime);
 	if (test->tab_final[a + 1][b].z != 0 && test->tab_final[a][b].z != test->tab_final[a + 1][b].z)
 	{
 		while (y < y_prime)
@@ -124,10 +123,12 @@ void ft_draw_collone(int a, int b, t_my_mlx env, t_data * test)
 			}
 			if (test->tab_final[a][b].z != 0 || test->tab_final[a + 1][b].z != 0)
 			{
-				mlx_pixel_put(env.mlx,env.win,x,y, 0x0066FFFF);
+				mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x, y), 0x0066FFFF);
 			}
 			else
-				mlx_pixel_put(env.mlx,env.win,x,y,0x00996600);
+			{
+				mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point (x, y),0x00996600);
+			}
 			y++;
 			coef_prime++;
 		}
@@ -143,12 +144,14 @@ void ft_draw_collone(int a, int b, t_my_mlx env, t_data * test)
 			}
 			if (test->tab_final[a][b].z != 0 || test->tab_final[a + 1][b].z != 0)
 			{
-				mlx_pixel_put(env.mlx,env.win,x,y, 0x0066FFFF);
+				mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x,y), 0x0066FFFF);
 			}
 			else
-				mlx_pixel_put(env.mlx,env.win,x,y,0x00996600);
+			{
+				mlx_pixel_put(env.mlx,env.win, rotate_point_x(x,y), rotate_point(x, y),0x00996600);
+			}
 			y++;
 			coef_prime++;
 		}
 	}
-}
+} 

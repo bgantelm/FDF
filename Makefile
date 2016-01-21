@@ -6,7 +6,7 @@
 #    By: fhenri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:12:41 by fhenri            #+#    #+#              #
-#    Updated: 2016/01/19 11:31:56 by fhenri           ###   ########.fr        #
+#    Updated: 2016/01/20 20:55:28 by fhenri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,11 @@ LIB_PATH = -L.
 
 LIB_NAME =
 
-//CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc 
 
-SRC_NAME = fdf.c transmo.c mlx_display.c tab_postion.c ft_draw_back.c
+SRC_NAME = fdf.c transmo.c mlx_display.c tab_postion.c ft_draw_back.c ft_rotation.c
 
 OBJ_NAME = $(SRC:.c=.o)
 

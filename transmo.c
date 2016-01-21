@@ -6,13 +6,13 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/16 10:25:56 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/18 12:42:16 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/20 21:02:03 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int **ft_transmo(char **str)
+t_data **ft_transmo(char **str)
 {
 	t_data val;
 	t_data *test;
@@ -73,7 +73,7 @@ int **ft_transmo(char **str)
 		val.a++;
 		val.x++;
 	}
-	test->tab_final = tab_pos(val,test);
+	test->tab_final = (t_point **)tab_pos(val,test);
 //	ft_putnbr(test->tab_final[3][3].x);
 	mlx_display(val,test);
 	return (0);

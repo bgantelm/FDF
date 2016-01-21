@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:40:26 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/19 18:47:13 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/21 10:25:55 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "mlx.h"
+# include <math.h>
 # include <stdlib.h>
 # include <time.h>
 # include <fcntl.h>
@@ -46,12 +47,14 @@ typedef struct	s_data
 	t_point**	tab_final;
 }				t_data;
 
+int			rotate_point_x(int x, int y);
+int			rotate_point(int x, int y);
 int			ft_affine(int ** grid, t_data val);
-int			**ft_transmo(char **grid);
+t_data		**ft_transmo(char **grid);
 int			my_quit(int keycode, t_my_mlx env);
 void		display(int **grid, int x, int  y);
 int			mlx_display(t_data val,t_data *test);
-t_data 		**tab_pos(t_data val, t_data *test);
+t_point		**tab_pos(t_data val, t_data *test);
 void		ft_line(t_my_mlx, int a, int b);
 void		mise_en_reliefe(t_my_mlx env, int **grid, t_data val);
 void		ft_collone(t_my_mlx env, int a, int b);
