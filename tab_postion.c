@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 19:34:13 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/21 10:24:58 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/22 16:44:10 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ t_point **tab_pos(t_data val, t_data *test)
 			z = test->tab_final[a][b].z;
 			//ft_putstr("z : ");
 			//ft_putnbr(test->tab_final[a][b].z);
-			test->tab_final[a][b].x = (b * (1000 - 700) /val.y) + cte * (-1 * z) + 400;
-			test->tab_final[a][b].y = (a * (500 - 300) / val.x) + (cte/2 ) * (-1 * z)  + 300;
+			test->tab_final[a][b].x = (b * (1000 - 300) /val.y) + cte * (-1 * z) + 50;
+			test->tab_final[a][b].y = (a * (500 - 150) / val.x) + (cte/2 ) * (-1 * z)  + 300;
 			ft_putstr(" | x : ");
 			ft_putnbr(test->tab_final[a][b].x);
 			ft_putstr(" | y : ");
@@ -64,6 +64,7 @@ t_point **tab_pos(t_data val, t_data *test)
 		ft_putstr("\n");
 		a++;
 	}
+	ft_putnbr(val.y);
 		//	ft_putnbr(test->tab_final[3][3].y);
 //	ft_affichage(test,val);
 	return(test->tab_final);

@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/20 15:47:50 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/22 12:15:50 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,6 @@ int error()
 	return(0);
 }
 
-int my_quit(int keycode, t_my_mlx env)
-{
-	if (keycode == 53)
-	{
-		mlx_clear_window(env.mlx,env.win);
-		mlx_destroy_window(env.mlx,env.win);
-		exit(0);
-	}
-	return (1);
-}
 /*
    int main (int argc, char **argv)
    {

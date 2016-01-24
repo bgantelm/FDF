@@ -6,18 +6,18 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/20 20:38:53 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/21 10:23:57 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/22 10:58:52 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-# define ANGLE -100
-int rotate_point(int x, int y)
+
+int rotate_point(int x, int y, int angle)
 {
-	float s = sin(ANGLE);
-	float c = cos(ANGLE);
-	float cx = 0;
-	float cy = 0;
+	float s = sin(angle);
+	float c = cos(angle);
+	float cx = 500;
+	float cy = 300;
 	
 	x -= cx;
 	y -= cy;
@@ -29,13 +29,13 @@ int rotate_point(int x, int y)
 	y = ynew + cy;
 	return (y);
 }
-int rotate_point_x (int x, int y)
+int rotate_point_x (int x, int y, int angle)
 {
 
-	float s = sin(ANGLE);
-	float c = cos(ANGLE);
-	float cx = 0;
-	float cy = 0;
+	float s = sin(angle);
+	float c = cos(angle);
+	float cx = 500;
+	float cy = 300;
 	
 	x -= cx;
 	y -= cy;
