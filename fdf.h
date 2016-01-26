@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:59:39 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/25 15:48:48 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 15:43:32 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@
 # include <stdlib.h>
 # include <time.h>
 # include <fcntl.h>
-# define BUFF_SIZE 4096
 # define WIDHT 1000
 # define HEIGHT 1000
+# define BUFF_SIZE 300000
 
-
-
-typedef struct s_poit
+typedef struct s_point
 {
 	int		x;
 	int		y;

@@ -6,7 +6,7 @@
 #    By: fhenri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:12:41 by fhenri            #+#    #+#              #
-#    Updated: 2016/01/25 12:12:21 by fhenri           ###   ########.fr        #
+#    Updated: 2016/01/26 10:55:18 by fhenri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ CFLAGS = -Wall -Wextra -Werror -O3
 CC = gcc 
 
 SRC_NAME = fdf.c ft_transmo.c tab_postion.c mlx_display.c gestion_touche.c ft_rotation.c
-
 OBJ_NAME = $(SRC:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))

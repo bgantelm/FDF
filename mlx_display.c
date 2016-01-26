@@ -6,57 +6,75 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 15:02:57 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/25 15:33:41 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 15:28:45 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
 void ft_draw_line(t_point a, t_point b, t_data *val)
 {
-	int y;
+	int dx;
+	int dy;
+	int i;
+	int xinc;
+	int yinc;
+	int cumul;
 	int x;
-	double  coef;
-	double origin;
+	int y;
+	x = a.x ;
+	y = a.y ;
+	dx = b.x - a.x ;
+	dy = b.y - a.y ;
+	xinc = ( dx > 0 ) ? 1 : -1 ;
+	yinc = ( dy > 0 ) ? 1 : -1 ;
+	dx = abs(dx) ;
+	dy = abs(dy) ;
 	t_point *p;
 
 	p = malloc(sizeof(t_point));
-	if (a.x != b.x)
-	{
-		coef = ((b.y - a.y) / (b.x - a.x));
-		origin = (a.y - ((b.y - a.y) / (b.x - a.x)) * a.x);
-		x = (a.x < b.x) ? (a.x) : (b.x);
-		while (x <= a.x || x < b.x)  
-		{
-			y = coef * x + origin;
+	//	mlx_pixel_put(val->mlx,val->win,x,y,0x00996600);
+	if ( dx > dy ) {
+		cumul = dx / 2 ;
+		for ( i = 1 ; i <= dx ; i++ ) {
+			x += xinc ;
+			cumul += dy ;
+			if ( cumul >= dx ) 
+			{
+				cumul -= dx;
+				y += yinc; 
+			}
 			p->x = x;
 			p->y = y;
 			rotate_point(600,500,p,val);
-			if (a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00996600);
+			if (b.z != 0)
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+			else if (a.z != 0)
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
 			else
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFF);
-			x++;
-		//	ft_putnbr(p->x);
-		}
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
+		} 
 	}
-	else
-	{
-		y = (a.y < b.y) ? (a.y) : (b.y);
-		while (y <= b.y || y <= a.y)
-		{
-			p->x = a.x;
+	else {
+		cumul = dy / 2 ;
+		for ( i = 1 ; i <= dy ; i++ ) {
+			y += yinc ;
+			cumul += dx ;
+			if ( cumul >= dy ) {
+				cumul -= dy ;
+				x += xinc ; 
+			}
+			p->x = x;
 			p->y = y;
 			rotate_point(600,500,p,val);
-			if (a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00996600);
+			if (b.z != 0)
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+			else if(a.z != 0)
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
 			else
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFF);
-			y++;
-		}
-	} 
-} 
-
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
+		} 
+	}
+}
 void	mlx_display(t_data *val)
 {
 	int a;

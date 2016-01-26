@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:58:47 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/25 15:50:17 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 11:10:13 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ t_data *ft_suite(char **str, t_data *val)
 		val->y = 0;
 		while (str[val->a][val->b] != '\0')
 		{
-			if (str[val->a][val->b] == ' ' && str[val->a][val->b + 1] != '0'  && str[val->a][val->b + 2] != ' ' && str[val->a][val->b +2] != '\0')
+			if (str[val->a][val->b] == ' '
+					&& str[val->a][val->b + 1] != '0'
+					&& str[val->a][val->b + 2] != ' ' && str[val->a][val->b +2] != '\0')
 			{
-				ft_putstr("test");
 				val->b++;
 				ft_remplissage(str, val);
 			}
