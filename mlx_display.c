@@ -6,11 +6,12 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 15:02:57 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 15:28:45 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 17:47:57 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 void ft_draw_line(t_point a, t_point b, t_data *val)
 {
 	int dx;
@@ -27,12 +28,11 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 	dy = b.y - a.y ;
 	xinc = ( dx > 0 ) ? 1 : -1 ;
 	yinc = ( dy > 0 ) ? 1 : -1 ;
-	dx = abs(dx) ;
-	dy = abs(dy) ;
+	dx = abs(dx);
+	dy = abs(dy);
 	t_point *p;
 
 	p = malloc(sizeof(t_point));
-	//	mlx_pixel_put(val->mlx,val->win,x,y,0x00996600);
 	if ( dx > dy ) {
 		cumul = dx / 2 ;
 		for ( i = 1 ; i <= dx ; i++ ) {
@@ -47,9 +47,9 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 			p->y = y;
 			rotate_point(600,500,p,val);
 			if (b.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
 			else if (a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
 			else
 				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
 		} 
@@ -67,9 +67,9 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 			p->y = y;
 			rotate_point(600,500,p,val);
 			if (b.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
 			else if(a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00CC9999);
+				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
 			else
 				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
 		} 

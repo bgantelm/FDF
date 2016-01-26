@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:59:39 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 15:43:32 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 17:41:03 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,16 @@ typedef struct s_data
 	int			angle;
 	int 		droite;
 	int			haut;
+	int		largeur;
+	int		longeur;
+	int rota_droite;
+	int rota_gauche;
 	int x;
 	int y;
 	int a;
 	int b;
+	float cte;
+	float cte_bis;
 	int		**grid;
 	t_point **final;
 }			t_data;

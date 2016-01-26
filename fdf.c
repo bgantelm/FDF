@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 15:43:45 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 17:42:14 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ static int ft_display(char *name, t_data *val)
 {
 
 	val->angle = 0;
+	val->rota_droite = 1000;
+	val->rota_gauche = 500;
+	val->largeur = 300;
+	val->longeur = 150;
+	val->cte_bis = 0;
 	val->mlx = mlx_init();
 	val->win = mlx_new_window(val->mlx,1400,850,name);
 	mlx_display(val);

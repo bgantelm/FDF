@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:58:47 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 11:10:13 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 17:43:10 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,14 @@ t_data		*ft_transmo(char **str)
 	val = malloc(sizeof(t_data));
 	val->a = 0;
 	val->b = 0;
+	val->cte = 1.5;
+	val->cte_bis = 0;
 	val->droite = 100;
 	val->haut = 300;
+	val->largeur = 300;
+	val->longeur = 150;
+	val->rota_droite = 1000;
+	val->rota_gauche = 500;
 	val->grid = malloc(sizeof(t_data));
 	val->grid = (int **)malloc(sizeof(int) *ft_strlen(*str));
 	while(str[val->a] != 0)

@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/17 19:34:13 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 11:04:55 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/26 17:40:46 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_data *tab_pos(t_data *val)
 	int a;
 	int b;
 	int z;
-	float cte = 1.5;
 	z = 0;
 	a = 0;
 	val->final = (t_point**)malloc(sizeof(t_point *) *val->x);
@@ -31,8 +30,8 @@ t_data *tab_pos(t_data *val)
 			z = val->final[a][b].z;
 			//ft_putstr("z : ");
 			//ft_putnbr(test->tab_final[a][b].z);
-			val->final[a][b].x = (b * (1000 - 300) /val->y) + cte * (-1 * z) + val->droite;
-			val->final[a][b].y = (a * (500 - 150) / val->x) + (cte/2 ) * (-1 * z)  + val->haut;
+			val->final[a][b].x = (b * (val->rota_droite - val->largeur) /val->y) + val->cte_bis * (-1 * z) + val->droite;
+			val->final[a][b].y = (a * (val->rota_gauche - val->longeur) / val->x) + (val->cte/2 ) * (-1 * z)  + val->haut;
 			ft_putstr(" | x : ");
 			ft_putnbr(val->final[a][b].x);
 			ft_putstr(" | y : ");
