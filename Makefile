@@ -6,7 +6,7 @@
 #    By: fhenri <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:12:41 by fhenri            #+#    #+#              #
-#    Updated: 2016/01/26 10:55:18 by fhenri           ###   ########.fr        #
+#    Updated: 2016/01/27 15:42:05 by fhenri           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LDFLAGS = $(LIB_PATH) $(LIB_NAME)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		    $(CC) $(LD_FLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit libft/libft.a
+		    $(CC) $(LD_FLAGS) $^ -o $@ -lmlx -framework OpenGL -framework AppKit libft/libft.a get_next_line/get_next_line.c
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c 
 		    $(CC) $(CFLAGS) $(INC_PATH)  -c $<

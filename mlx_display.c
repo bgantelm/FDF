@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 15:02:57 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 17:47:57 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 16:49:11 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 	t_point *p;
 
 	p = malloc(sizeof(t_point));
-	if ( dx > dy ) {
+	if ( dx > dy ) 
+	{
 		cumul = dx / 2 ;
 		for ( i = 1 ; i <= dx ; i++ ) {
 			x += xinc ;
@@ -75,6 +76,7 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 		} 
 	}
 }
+
 void	mlx_display(t_data *val)
 {
 	int a;

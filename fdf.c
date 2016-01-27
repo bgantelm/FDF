@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 17:42:14 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 16:42:58 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,24 @@ int error()
 	ft_putendl("error");
 	return(0);
 }
-int ft_rong_map (char *str)
+static void  ft_init ( t_data * val)
 {
-	int a = 0;
-	while (str[a])
-	{
-		if (ft_isdigit(str[a]) != 1 && str[a] != '-' && str[a] != ' ' && str[a] != '\n')
-		{
-			error();
-			return (1);
-		}
-		
-		a++;
-	}
-	return(0);
- }
-static int ft_display(char *name, t_data *val)
-{
-
 	val->angle = 0;
+	val->a = 0;
+	val->b = 0;
+	val->cte = 1.5;
+	val->cte_bis = 0;
+	val->droite = 100;
+	val->haut = 300;
 	val->rota_droite = 1000;
 	val->rota_gauche = 500;
 	val->largeur = 300;
 	val->longeur = 150;
-	val->cte_bis = 0;
+}
+static int ft_display(char *name, t_data *val)
+{
+	ft_init(val);
+	tab_pos(val);
 	val->mlx = mlx_init();
 	val->win = mlx_new_window(val->mlx,1400,850,name);
 	mlx_display(val);
@@ -54,24 +48,22 @@ static int ft_display(char *name, t_data *val)
 int main (int argc, char **argv)
 {
 
-	int		file;
-	char	*buf;
-	int		index;
-	char	**grid;
-	t_data *val;
+	char    *buf;
+	int         fd;
+	t_data  *val;
 
+	val = malloc(sizeof(t_data));
+	val->x = 0;
 	if (argc != 2)
 		return (error());
-	buf = malloc(sizeof(char) * BUFF_SIZE);
-	file = open(argv[1], O_RDONLY);
-	index = read(file, buf, BUFF_SIZE);
-	buf[index] = '\0';
-	close(file);
-	if (file == -1)
-		return (error());
-//	if (ft_rong_map (buf) != 0)
-//		return (0);
-	grid = ft_strsplit(buf,'\n');
-	val = ft_transmo(grid);
+	fd = open(argv[1], O_RDONLY);
+	val->grid= malloc(sizeof(int) * 10000000);
+	while (get_next_line(fd,&buf) == 1)
+	{
+		ft_suite(buf, val);
+		val->x++;
+		free(buf);
+	}
 	return (ft_display(argv[1],val));
-} 
+}
+

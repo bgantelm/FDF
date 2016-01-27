@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:59:39 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/26 17:41:03 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 16:05:54 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 # include "libft/libft.h"
 # include "mlx.h"
+# include "get_next_line/get_next_line.h"
 # include <math.h>
 # include <stdlib.h>
 # include <time.h>
 # include <fcntl.h>
-# define WIDHT 1000
-# define HEIGHT 1000
-# define BUFF_SIZE 300000
 
 typedef struct s_point
 {
@@ -55,7 +53,7 @@ typedef struct s_data
 int			my_quit(int keycode);
 int			touch_rotate(int keycode, t_data *param);
 void		rotate_point(int cx, int cy, t_point *p, t_data *val);
-t_data		*tab_pos(t_data *val);
-t_data      *ft_transmo(char **str);
+void		tab_pos(t_data *val);
+void		ft_suite(char *str, t_data *val);
 void		mlx_display(t_data *val);
 #endif
