@@ -6,19 +6,19 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/27 16:42:58 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 16:52:31 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-//-lmlx -framework OpenGL -framework AppKit
-int error()
+int			error()
 {
 	ft_putendl("error");
-	return(0);
+	return (0);
 }
-static void  ft_init ( t_data * val)
+
+static void	ft_init(t_data *val)
 {
 	val->angle = 0;
 	val->a = 0;
@@ -32,20 +32,20 @@ static void  ft_init ( t_data * val)
 	val->largeur = 300;
 	val->longeur = 150;
 }
-static int ft_display(char *name, t_data *val)
+
+static int	ft_display(char *name, t_data *val)
 {
 	ft_init(val);
 	tab_pos(val);
 	val->mlx = mlx_init();
-	val->win = mlx_new_window(val->mlx,1400,850,name);
+	val->win = mlx_new_window(val->mlx, 1400, 850, name);
 	mlx_display(val);
 	mlx_key_hook(val->win, touch_rotate, val);
 	mlx_loop(val->mlx);
-
 	return (0);
 }
 
-int main (int argc, char **argv)
+int			main(int argc, char **argv)
 {
 
 	char    *buf;
@@ -57,8 +57,8 @@ int main (int argc, char **argv)
 	if (argc != 2)
 		return (error());
 	fd = open(argv[1], O_RDONLY);
-	val->grid= malloc(sizeof(int) * 10000000);
-	while (get_next_line(fd,&buf) == 1)
+	val->grid = malloc(sizeof(int) * 10000000);
+	while (get_next_line(fd, &buf) == 1)
 	{
 		ft_suite(buf, val);
 		val->x++;
@@ -66,4 +66,3 @@ int main (int argc, char **argv)
 	}
 	return (ft_display(argv[1],val));
 }
-

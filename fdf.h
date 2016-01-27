@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:59:39 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/27 16:05:54 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 17:39:15 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ typedef struct s_data
 	t_point **final;
 }			t_data;
 
+int suite1(int keycode, t_data *val);
+int suite2(int keycode, t_data *val);
+int suite3(int keycode, t_data *val);
+int suite4(int keycode, t_data *val);
+
+int			ft_color(t_point a, t_point b);
 int			my_quit(int keycode);
 int			touch_rotate(int keycode, t_data *param);
 void		rotate_point(int cx, int cy, t_point *p, t_data *val);

@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 15:02:57 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/27 16:49:11 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/27 17:06:17 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 			p->x = x;
 			p->y = y;
 			rotate_point(600,500,p,val);
-			if (b.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
-			else if (a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
-			else
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
+			mlx_pixel_put(val->mlx,val->win,p->x,p->y,ft_color(a,b));
 		} 
 	}
 	else {
@@ -67,12 +62,7 @@ void ft_draw_line(t_point a, t_point b, t_data *val)
 			p->x = x;
 			p->y = y;
 			rotate_point(600,500,p,val);
-			if (b.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
-			else if(a.z != 0)
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x0066FFCC);
-			else
-				mlx_pixel_put(val->mlx,val->win,p->x,p->y,0x00666666);
+			mlx_pixel_put(val->mlx,val->win,p->x,p->y,ft_color(a,b));
 		} 
 	}
 }
