@@ -6,13 +6,13 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/27 18:03:23 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/29 10:59:19 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int			error()
+int			error(void)
 {
 	ft_putendl("error");
 	return (0);
@@ -47,10 +47,9 @@ static int	ft_display(char *name, t_data *val)
 
 int			main(int argc, char **argv)
 {
-
-	char    *buf;
-	int         fd;
-	t_data  *val;
+	char		*buf;
+	int			fd;
+	t_data		*val;
 
 	val = malloc(sizeof(t_data));
 	val->x = 0;
@@ -64,5 +63,5 @@ int			main(int argc, char **argv)
 		val->x++;
 		free(buf);
 	}
-	return (ft_display(argv[1],val));
+	return (ft_display(argv[1], val));
 }

@@ -6,18 +6,29 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/27 16:52:47 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/27 17:23:14 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/29 10:57:23 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int ft_color(t_point a, t_point b)
+int	ft_color(t_point a, t_point b)
 {
-	if(a.z != 0)
-		return(a.z * 0x00993366);
-	if(b.z != 0)
-		return(b.z * 0x00993366);
-	else
-		return(0x00FF3333);
+	int val;
+
+	if (a.z != 0)
+	{
+		val = a.z * 0x00CC9999;
+		if (val <= 0)
+			return (0x00CC9999);
+		return (val);
+	}
+	if (b.z != 0)
+	{
+		val = b.z * 0x00CC9999;
+		if (val <= 0)
+			return (0x00CC9999);
+		return (val);
+	}
+	return (0x00FF3333);
 }
