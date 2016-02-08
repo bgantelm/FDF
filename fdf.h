@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 10:59:39 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/29 11:41:35 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/29 12:13:45 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "get_next_line/get_next_line.h"
 # include <math.h>
 # include <stdlib.h>
-# include <time.h>
 # include <fcntl.h>
 
 typedef struct	s_point

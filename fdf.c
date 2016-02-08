@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:39:12 by fhenri            #+#    #+#             */
-/*   Updated: 2016/01/29 10:59:19 by fhenri           ###   ########.fr       */
+/*   Updated: 2016/01/29 12:24:16 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int			main(int argc, char **argv)
 	if (argc != 2)
 		return (error());
 	fd = open(argv[1], O_RDONLY);
+	if (fd != 3)
+	{
+		return (error());
+	}
 	val->grid = malloc(sizeof(int) * 10000000);
 	while (get_next_line(fd, &buf) == 1)
 	{
