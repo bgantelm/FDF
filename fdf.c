@@ -57,9 +57,7 @@ int			main(int argc, char **argv)
 		return (error());
 	fd = open(argv[1], O_RDONLY);
 	if (fd != 3)
-	{
 		return (error());
-	}
 	val->grid = malloc(sizeof(int) * 10000000);
 	while (get_next_line(fd, &buf) == 1)
 	{
